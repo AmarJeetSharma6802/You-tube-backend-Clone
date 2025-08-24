@@ -1,5 +1,5 @@
 import { isValidObjectId } from "mongoose";
-import { User } from "../models/user.model.js";
+// import { User } from "../models/user.model.js";
 import { Video } from "../models/video.model.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
@@ -80,8 +80,8 @@ const publishAVideo = asyncHandler(async (req, res) => {
 
     const videoFile = await uploadOnCloudinary(videoFileLocalPath);
     const thumbnail = await uploadOnCloudinary(thumbnailLocalPath);
-    console.log("Video file uploaded:", videoFile);
-    console.log("Thumbnail file uploaded:", thumbnail);
+    // console.log("Video file uploaded:", videoFile);
+    // console.log("Thumbnail file uploaded:", thumbnail);
     if (!videoFile) {
         throw new ApiError(400, "Video file not found");
     } 
