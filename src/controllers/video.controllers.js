@@ -37,7 +37,8 @@ const getAllVideos =asyncHandler(async(req,res)=>{
     if(sortBy && sortType){
         pipeline.push({
             $sort:{
-                [sortBy]:sortType === "asc" ? 1: -1 
+                [sortBy]:sortType === "asc" ? 1: -1   //ascending A to Z / purane se naye tak
+                // [sortBy]:sortType === "desc" ? 1: -1   //descending (Z to A / naye se purane tak)
 
             }
         })
