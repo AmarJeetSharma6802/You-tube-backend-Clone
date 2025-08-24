@@ -50,7 +50,8 @@ const getAllVideos =asyncHandler(async(req,res)=>{
         page:parseInt(page ,10),
         limit:parseInt(limit,10)
     }
-    const videoAggregate = Video.aggregatePaginate(videoAggregate ,options)
+   
+
     return res.status(200)
     .json(new ApiResponse(200,Video,"Videos Fetched successfully"))
 })
@@ -64,8 +65,8 @@ const publishAVideo = asyncHandler(async (req, res) => {
 
     const videoFileLocalPath = req.files?.videoFile[0].path;
     const thumbnailLocalPath = req.files?.thumbnail[0].path;
-    console.log("videoFileLocalPath",videoFileLocalPath)
-    console.log("thumbnailLocalPath",thumbnailLocalPath)
+    // console.log("videoFileLocalPath",videoFileLocalPath)
+    // console.log("thumbnailLocalPath",thumbnailLocalPath)
 
     if (!videoFileLocalPath) {
         throw new ApiError(400, "Video file is required");
@@ -77,7 +78,8 @@ const publishAVideo = asyncHandler(async (req, res) => {
 
     const videoFile = await uploadOnCloudinary(videoFileLocalPath);
     const thumbnail = await uploadOnCloudinary(thumbnailLocalPath);
-console.log("videoFile", videoFile)
+    console.log("Video file uploaded:", videoFile);
+    console.log("Thumbnail file uploaded:", thumbnail);
     if (!videoFile) {
         throw new ApiError(400, "Video file not found");
     } 
