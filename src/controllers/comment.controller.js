@@ -33,7 +33,7 @@ const getVideoComments = asyncHandler(async (req, res) => {
     });
   }
 
-  res.status(200).json(new ApiResponse(comments));
+  res.status(200).json(new ApiResponse(200, commentsWithLikes, "Comments fetched successfully"));
 });
 
 const addComment = asyncHandler(async (req, res) => {
@@ -45,8 +45,7 @@ const addComment = asyncHandler(async (req, res) => {
   const newComment = await Comment.create({
     video: videoId,
     content: content,
-    // likedBy:[req.user._id],
-    likedBy: req.user._id,
+    owner: req.user._id,
   });
 
   res.status(201).json(new ApiResponse(newComment));
