@@ -18,6 +18,7 @@ const toggleVideoLike = asyncHandler(async (req, res) => {
 
   // Check if video exists
   const video = await Video.findById(videoId);
+  
   if (!video) {
     throw new ApiError(404, "Video not found");
   }

@@ -16,11 +16,13 @@ app.use(cookieParser())
 import userRoutes from './routes/user.routes.js'
 import VideoRoutes from './routes/video.router.js'
 import LikeRoutes from "./routes/like.routes.js"
+import CommentRoutes from "./routes/comment.routes.js"
 
 //routes declaration
 app.use("/api/v1/users", userRoutes)
 app.use("/api/v1/videos",VideoRoutes)
-app.use("/api/v1/videos",LikeRoutes)
+app.use("/api/v1/likes",LikeRoutes)
+app.use("/api/v1/comments",CommentRoutes)
 // http://Localhost:8000/api/v1/users/register esa route hum bana rhe hain
 
 export {app} 
