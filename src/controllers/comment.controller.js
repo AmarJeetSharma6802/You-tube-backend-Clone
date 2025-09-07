@@ -52,7 +52,7 @@ const addComment = asyncHandler(async (req, res) => {
 });
 
 const updateComment = asyncHandler(async (req, res) => {
-  // TODO: update a comment
+  
   const { commentId } = req.params; // Assume the comment ID is passed in the URL
   const { content } = req.body;
 
